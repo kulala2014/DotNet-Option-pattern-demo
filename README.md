@@ -7,3 +7,14 @@ Classes that depend on configuration settings depend only on the configuration s
 #### 👇 Separation of Concerns:
 Settings for different parts of the app aren't dependent or coupled to one another.
 Options also provide a mechanism to validate configuration data. For more information, see the Options validation section.
+
+### 👇 IConfiguration
+IConfiguration is a simple and lightweight approach for loading configurations in ASP.NET Core applications from the appsettings file.However, we need a more robust solution for handling a bit more advanced requirements like Validations, Type-Safety, and Reloading. This is where the Options Pattern comes in.
+Here are the other cons of using IConfiguration in ASP.NET Core applications:
+<ul>
+  <li>IConfiguration to load the required configurations from the appsettings.json. This can be bad for the security of the application since IConfigration has access to all the other configuration options as well which are not meant to be derived. You will also have to name your keys properly to avoid runtime errors.</li>
+  <li><strong>No Validation – </strong>IConfiguration does not perform any validation over the configuration values, which might be fatal during the application runtime.</li>
+  <li><strong>No Type-Safety - </strong>As mentioned earlier, the interface reads configurations as strings that have to be parsed manually.This also increases the chances of configuration-related issues.</li>
+  <li><strong>No Default values – </strong>In case the required key is empty / not found in appsettings, there is no built-in way to return a default value that can be used throughout the application.</li>
+  <li><strong>No Type-Safety - </strong>As mentioned earlier, the interface reads configurations as strings that have to be parsed manually.This also increases the chances of configuration-related issues.</li>
+</ul>
