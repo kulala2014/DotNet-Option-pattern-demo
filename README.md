@@ -89,4 +89,7 @@ IOptionsSnapshot - this is a scoped service that gives a snapshot of options at 
 ### 👇 IOptionsMonitor:
 IOptionsMonitor - this is a singleton service that gets the current value at any time
 
+The major difference is the lifetime of these instances:
+IOptionsMonitor is registered as Singleton, whereas the IOptionsSnapshot is registered as Scoped.
+
 
