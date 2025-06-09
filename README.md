@@ -72,8 +72,8 @@ Use WeathersController to read settings from appsettings.json with IConfiguratio
         }
 }
 ```
-
-### The options pattern uses classes to provide strongly typed access to groups of related settings. When configuration settings are isolated by scenario into separate classes, the app adheres to two important software engineering principles:
+### 👇 Options
+The options pattern uses classes to provide strongly typed access to groups of related settings. When configuration settings are isolated by scenario into separate classes, the app adheres to two important software engineering principles:
 
 #### 👇 RequestEncapsulation:
 Classes that depend on configuration settings depend only on the configuration settings that they use.
