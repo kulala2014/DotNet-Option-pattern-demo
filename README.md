@@ -31,6 +31,7 @@ appsettings.json
   }
 }
 ```
+Use WeathersController to read settings from appsettings.json with IConfiguration:
 
 ```
     [Route("[controller]")]
