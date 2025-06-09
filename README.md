@@ -33,26 +33,16 @@ appsettings.json
 ```
 
 ```
-    public class WeatherController : ControllerBase
+    [Route("[controller]")]
+    [ApiController]
+    public class WeathersController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        private readonly WeatherOptions _weatherOptions;
-        private readonly WeatherOptions _optionsSnapshot;
-        private readonly WeatherOptions _optionsMonitor;
-        /// <summary>
-        /// The IOptions interface load the configuration values only once, during the application startup.
-        /// If we want to always load the latest value from appsettings.json, we could use two following interfaces:
-        /// IOptionsSnapshot - this is a scoped service that gives a snapshot of options at the time the constructor is invoked.
-        /// IOptionsMonitor - this is a singleton service that gets the current value at any time
-        /// </summary>
         /// <param name="configuration"></param>
         /// <param name="weatherOptions"></param>
-        public WeatherController(IConfiguration configuration, IOptions<WeatherOptions> weatherOptions, IOptionsSnapshot<WeatherOptions> optionsSnapshot, IOptionsMonitor<WeatherOptions> optionsMonitor)
+        public WeathersController(IConfiguration configuration)
         {
             _configuration = configuration;
-            _weatherOptions = weatherOptions.Value;
-            _optionsSnapshot = optionsSnapshot.Value;
-            _optionsMonitor = optionsMonitor.CurrentValue;
         }
 
         /// <summary>
@@ -79,6 +69,7 @@ appsettings.json
                 Summary = summary
             });
         }
+}
 ```
 
 ### The options pattern uses classes to provide strongly typed access to groups of related settings. When configuration settings are isolated by scenario into separate classes, the app adheres to two important software engineering principles:
