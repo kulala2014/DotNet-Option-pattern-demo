@@ -83,7 +83,10 @@ Options also provide a mechanism to validate configuration data. For more inform
 
 And Options have the below three types of interfaces to load settings:
 ### 👇 IOptions:
+The IOptions interface load the configuration values only once, during the application startup.
 ### 👇 IOptionsSnapshot:
+IOptionsSnapshot - this is a scoped service that gives a snapshot of options at the time the constructor is invoked.
 ### 👇 IOptionsMonitor:
+IOptionsMonitor - this is a singleton service that gets the current value at any time
 
 
