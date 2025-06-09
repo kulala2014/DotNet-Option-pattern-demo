@@ -91,5 +91,10 @@ IOptionsMonitor - this is a singleton service that gets the current value at any
 
 The major difference is the lifetime of these instances:
 IOptionsMonitor is registered as Singleton, whereas the IOptionsSnapshot is registered as Scoped.
-
+#### 👇 When to use IOptions, IOptionsMonitor, and IOptionsSnapshot?
+<ul>
+  <li>Prefer to use IOptions, when you are not expecting your configuration values to change.</li>
+  <li>Use IOptionsSnapshot when you expect your values to change, but want them to be uniform for the entire request cycle.</li>
+  <li>Use IOptionsMonitor when you need real-time options data</li>
+</ul>
 
