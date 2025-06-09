@@ -98,3 +98,35 @@ IOptionsMonitor is registered as Singleton, whereas the IOptionsSnapshot is regi
   <li>Use IOptionsMonitor when you need real-time options data</li>
 </ul>
 
+For example, AddOptions in startup:
+```
+using LearningOptions.Models;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+builder.Services.AddControllers();
+builder.Services.AddOptions<WeatherOptions>().BindConfiguration(nameof(WeatherOptions))
+    .ValidateDataAnnotations()
+    .ValidateOnStart()
+    .Validate(options =>
+    {
+        if (options.State != "Kerala1") return false;
+        return true;
+    });
+builder.Services.AddDbContext<TodoContext>(opt => 
+    opt.UseInMemoryDatabase("TodoList"));
+builder.Services.AddEndpointsApiExplorer();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
+```
