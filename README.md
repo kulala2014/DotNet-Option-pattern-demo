@@ -80,3 +80,10 @@ Classes that depend on configuration settings depend only on the configuration s
 #### 👇 Separation of Concerns:
 Settings for different parts of the app aren't dependent or coupled to one another.
 Options also provide a mechanism to validate configuration data. For more information, see the Options validation section.
+
+And Options have the below three types of interfaces to load settings:
+### 👇 IOptions:
+### 👇 IOptionsSnapshot:
+### 👇 IOptionsMonitor:
+
+
