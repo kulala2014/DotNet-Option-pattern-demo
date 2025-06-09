@@ -11,6 +11,26 @@ Here are the other cons of using IConfiguration in ASP.NET Core applications:
   <li><strong>No Default values – </strong>In case the required key is empty / not found in appsettings, there is no built-in way to return a default value that can be used throughout the application.</li>
   <li><strong>No Type-Safety - </strong>As mentioned earlier, the interface reads configurations as strings that have to be parsed manually.This also increases the chances of configuration-related issues.</li>
 </ul>
+Use below sample to show the option pattern:
+appsettings.json
+
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "WeatherOptions": {
+    "City": "Trivandrum",
+    "State": "Kerala1",
+    "Temperature": 99,
+    "Summary": "Warm"
+  }
+}
+```
 
 ```
     public class WeatherController : ControllerBase
